@@ -1,0 +1,31 @@
+package com.dollop.adda.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.dollop.adda.Repo.CommentRepo;
+import com.dollop.adda.bean.Comments;
+import com.dollop.adda.bean.Post;
+import com.dollop.service.Commentsservice;
+
+public class Coomentsimpl implements Commentsservice{
+
+	@Autowired
+	private CommentRepo cr;
+	
+	@Override
+	public List<Comments> getallComments(Post p_id) {
+		// TODO Auto-generated method stub
+		Post p=new Post();
+		p.getComments();
+		return this.cr.findAll();
+	}
+
+	@Override
+	public Comments getComments(Integer id,Post p_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

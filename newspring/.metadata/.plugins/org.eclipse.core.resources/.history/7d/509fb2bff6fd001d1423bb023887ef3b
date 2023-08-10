@@ -1,0 +1,40 @@
+package com.dollop.adda.serviceimpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dollop.adda.Iservice.EmpService;
+import com.dollop.adda.Repo.EmpRepo;
+import com.dollop.adda.bean.Employee;
+@Service
+public class EmpServiceimpl implements EmpService{
+	@Autowired
+	private EmpRepo repo;
+
+	@Override
+	public Employee save(Employee emp) {
+		// TODO Auto-generated method stub
+		return this.repo.save(emp);
+	}
+
+	@Override
+	public List<Employee> getAllEmployee() {
+		// TODO Auto-generated method stub
+		return this.repo.findAll();
+	}
+
+	@Override
+	public boolean deleteEmployee(Integer id) {
+		// TODO Auto-generated method stub
+		return this.repo.findById(id).get(id);
+	}
+
+	@Override
+	public Employee getEmployee(Integer id) {
+		// TODO Auto-generated method stub
+		return this.repo.getById(id);
+	}
+
+}

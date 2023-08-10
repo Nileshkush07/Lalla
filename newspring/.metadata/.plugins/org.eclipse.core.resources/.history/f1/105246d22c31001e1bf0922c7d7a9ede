@@ -1,0 +1,28 @@
+package com.dollop.adda.bean;
+
+
+
+
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Document("rating")
+public class Rating {
+	@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	private String ratingId;
+	private String uid;
+	private String hotelid;
+	private int rating;
+	private String feedback;
+
+}

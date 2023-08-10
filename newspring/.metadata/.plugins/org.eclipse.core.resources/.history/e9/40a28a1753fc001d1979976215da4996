@@ -1,0 +1,7 @@
+package com.dollop.adda.serviceimpl;
+
+import com.dollop.adda.bean.Employee;
+
+public class EmpServiceimpl extends Employee{
+
+}

@@ -1,0 +1,37 @@
+package com.dollop.adda.empcontroller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.dollop.adda.Repo.EmpRepo;
+import com.dollop.adda.bean.Employee;
+
+@Controller
+@RequestMapping("")
+public class EmpController {
+	@Autowired
+	private EmpRepo repo;
+	
+	@GetMapping("/show")
+	public String showEmployee(Model model) {
+		return "emp";
+	}
+	
+	@PostMapping("/data")
+	public String readEmployee(
+			@ModelAttribute Employee employee, Model model
+			)
+	{
+		this.repo.save(employee);
+		model.addAttribute("obj",employee);
+		return "empdata";
+	}
+	
+	
+
+}

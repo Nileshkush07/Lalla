@@ -1,0 +1,9 @@
+package com.dollop.adda.Iservice;
+
+import com.dollop.adda.bean.Employee;
+
+public interface EmpService {
+	
+	public Employee save(Employee emp);
+
+}

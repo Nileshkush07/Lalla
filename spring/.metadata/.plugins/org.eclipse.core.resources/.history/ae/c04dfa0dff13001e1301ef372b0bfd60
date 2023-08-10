@@ -1,0 +1,56 @@
+package com.dollop.adda.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dollop.adda.Repo.CommentRepo;
+import com.dollop.adda.Repo.PostRepo;
+import com.dollop.adda.bean.Comments;
+import com.dollop.adda.bean.Post;
+import com.dollop.service.Commentsservice;
+@Service
+public class Coomentsimpl implements Commentsservice{
+
+	@Autowired
+	private CommentRepo cr;
+	
+	@Autowired
+	private PostRepo pr;
+
+	@Override
+	public Comments save(Comments cmnt) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Comments updateCommentByCIDorPostID(Comments cmnt, Integer p_id, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Comments> getAllCommentsByPostID(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Comments getCommentsByPostIdORCommentID(Integer p_id, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteCommentByPostIdORCommentID(Integer p_id, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	}
+	
+	
+

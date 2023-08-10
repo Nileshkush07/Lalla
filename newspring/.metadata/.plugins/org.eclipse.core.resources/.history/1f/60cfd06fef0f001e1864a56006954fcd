@@ -1,0 +1,7 @@
+package com.dollop.service;
+
+public interface Commentsservice {
+	
+	
+
+}

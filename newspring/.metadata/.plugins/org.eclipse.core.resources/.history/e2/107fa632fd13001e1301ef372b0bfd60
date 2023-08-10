@@ -1,0 +1,71 @@
+package com.dollop.adda.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dollop.adda.Repo.CommentRepo;
+import com.dollop.adda.Repo.PostRepo;
+import com.dollop.adda.bean.Comments;
+import com.dollop.adda.bean.Post;
+import com.dollop.service.Commentsservice;
+@Service
+public class Coomentsimpl implements Commentsservice{
+
+	@Autowired
+	private CommentRepo cr;
+	
+	@Autowired
+	private PostRepo pr;
+
+	@Override
+	public Comments save(Comments cmnt) {
+		
+		return this.cr.save(cmnt);
+	}
+	@Override
+	public List<Comments> getAllCommentsByPostID(Long id) {
+		Post p = this.pr.findById(id).get();
+		System.out.println("getAllCommentsByPostID".toUpperCase());
+		if(p != null)
+		{
+			return p.getComments();
+		}
+		throw new CommentsNotFoundException("Comments Not Found "+id);
+	}
+	@Override
+	public Comments getCommentsByPostIdORCommentID(Long postId, Long id) {
+		Post post = new Post();
+		post.setP_id(postId);
+		Optional<Comments> comments = this.cr.findByIdAndPost(id, post);
+		if(comments.isPresent())
+			return comments.get();		
+		throw new CommentsNotFoundException("Comment Not Found "+ id);
+	}
+	@Override
+	public Comments updateCommentByCIDorPostID(Comments cmnt,Long postId,Long id) {
+		Post post = new Post();
+		post.setP_id(postId);
+		cmnt.setP_id(id);
+		Optional<Comments> comments = this.cr.findByIdAndPost(id, post);
+		if(comments.isPresent())
+		return this.cr.save(cmnt);
+		throw new CommentsNotFoundException("Comment Not Found "+ id);
+	}
+	@Override
+	public String deleteCommentByPostIdORCommentID(Long postId, Long id) {
+		Posts post = new Posts();
+		post.setId(postId);
+		Optional<Comments> comments = this.cr.findByIdAndPost(id, post);
+		if(comments.isPresent())
+		{
+			this.cr.deleteById(id);
+			return "Comment Deleted";	
+		}
+		throw new CommentsNotFoundException("Comment Not Found "+ id);
+	}
+	
+	
+}

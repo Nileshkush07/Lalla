@@ -1,0 +1,10 @@
+package com.dollop.adda.serviceimpl;
+
+import com.dollop.adda.Iservice.EmpService;
+import com.dollop.adda.Repo.EmpRepo;
+
+public class EmpServiceimpl implements EmpService{
+	
+	private EmpRepo repo;
+
+}

@@ -1,0 +1,22 @@
+package com.dollop.adda.empcontroller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+import com.dollop.adda.Repo.EmpRepo;
+@Component
+@Controller
+public class EmpController {
+	@Autowired
+	private EmpRepo repo;
+	
+	public String showEmployee(Model model) {
+		model.addAttribute("Employee","go to heaven");
+		return "emp";
+	}
+	
+	
+
+}

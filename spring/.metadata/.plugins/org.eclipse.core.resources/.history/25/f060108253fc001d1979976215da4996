@@ -1,0 +1,12 @@
+package com.dollop.adda.serviceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.dollop.adda.Iservice.EmpService;
+import com.dollop.adda.bean.Employee;
+
+public class EmpServiceimpl extends Employee{
+	@Autowired
+	private EmpService ser;
+
+}

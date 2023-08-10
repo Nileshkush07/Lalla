@@ -1,0 +1,23 @@
+package com.dollop.adda.impl;
+
+import java.util.List;
+
+import com.dollop.adda.bean.Comments;
+import com.dollop.adda.bean.Post;
+import com.dollop.service.Commentsservice;
+
+public class Coomentsimpl implements Commentsservice{
+
+	@Override
+	public List<Comments> getallComments(Integer id,Post pid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Comments getComments(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

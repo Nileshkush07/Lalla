@@ -1,0 +1,22 @@
+package com.dollop.adda.impl;
+
+import java.util.List;
+
+import com.dollop.adda.bean.Album;
+import com.dollop.service.Albumservice;
+
+public class Albumimpl implements Albumservice{
+
+	@Override
+	public Album getAlbum(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Album> getallAlbum() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,65 @@
+package com.dollop.adda.empcontroller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.dollop.adda.Iservice.EmpService;
+import com.dollop.adda.bean.Employee;
+
+@Controller
+@RequestMapping("")
+public class EmpController {
+	@Autowired
+	private EmpService repo;
+	
+	@GetMapping("/show")
+	public String showform(Model model) {
+		return "emp";	
+	}
+	
+	@PostMapping("/data")
+	public String getemployee(Employee emp,Model model) {
+		this.repo.save(emp);
+		model.addAttribute("obj",emp);
+		return "empdata";	
+	}
+	
+
+	
+	@GetMapping("/edit/{id}")
+	public String getEmployee(@PathVariable("id")Integer id,Model model)
+	{
+		System.out.println(id);
+		Optional<Employee> obj = Optional.of(repo.getEmployee(id));
+		model.addAttribute("employee", obj.isPresent()?obj.get():null);
+	     return "empedit";
+	}
+	@GetMapping("/update")
+	public String updateEmployee(@PathVariable("id")Integer id,Model model)
+	{
+		System.out.println(id);
+		Optional<Employee> obj = Optional.of(repo.getEmployee(id));
+		model.addAttribute("employee", obj.isPresent()?obj.get():null);
+		return "empedit";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteEmployee(@PathVariable("id")Integer id,Model model) {
+		this.repo.deleteEmployee(id);
+		List<Employee> obj=repo.getAllEmployee();
+		model.addAttribute("obj",obj);
+		return "empdata";
+	}
+	
+	
+	
+
+}

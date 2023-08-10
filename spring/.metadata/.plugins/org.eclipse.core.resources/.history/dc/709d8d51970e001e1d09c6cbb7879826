@@ -1,0 +1,23 @@
+package com.dollop.adda.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.dollop.adda.bean.Album;
+import com.dollop.service.Albumservice;
+
+public class Albumcontroller {
+	
+	@Autowired
+	private Albumservice as;
+	
+	
+	public ResponseEntity<List<Album>> getallAlbum(){
+		ResponseEntity<List<Album>> response=new ResponseEntity<List<Album>>(this.as.getallAlbum(),HttpStatus.OK);
+		return response;
+	}
+
+}

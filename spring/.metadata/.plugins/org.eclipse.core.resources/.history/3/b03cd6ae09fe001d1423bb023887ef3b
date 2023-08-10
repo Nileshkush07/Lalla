@@ -1,0 +1,18 @@
+package com.dollop.adda.Iservice;
+
+import java.util.List;
+
+import org.springframework.ui.Model;
+
+import com.dollop.adda.bean.Employee;
+
+public interface EmpService {
+	
+	public Employee save(Employee emp);
+	public List<Employee> getAllEmployee();
+	public void deleteEmployee(Integer id);
+	public Employee getEmployee(Integer id);
+	public Employee updateEmployee(Integer id,Model model);
+	
+
+}

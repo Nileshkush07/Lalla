@@ -1,0 +1,9 @@
+package com.dollop.adda.empcontroller;
+
+import com.dollop.adda.Repo.EmpRepo;
+
+public class EmpController {
+	
+	private EmpRepo repo;
+
+}

@@ -1,0 +1,8 @@
+my:
+ db:
+   stdname:DEV
+     stdid:111
+     
+ server:
+        port:9898    
+  
